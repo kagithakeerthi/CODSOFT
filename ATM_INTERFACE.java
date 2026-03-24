@@ -1,15 +1,9 @@
-6import java.util.Scanner;
-
-// Bank Account Class
+import java.util.Scanner;
 class BankAccount {
     private double balance;
-
-    // Constructor
     public BankAccount(double initialBalance) {
         balance = initialBalance;
     }
-
-    // Deposit method
     public void deposit(double amount) {
         if (amount > 0) {
             balance += amount;
@@ -18,8 +12,6 @@ class BankAccount {
             System.out.println("Invalid deposit amount.");
         }
     }
-
-    // Withdraw method
     public void withdraw(double amount) {
         if (amount > balance) {
             System.out.println("Insufficient balance!");
@@ -30,26 +22,19 @@ class BankAccount {
             System.out.println("Please collect your cash.");
         }
     }
-
-    // Check balance
     public double getBalance() {
         return balance;
     }
 }
-
-// ATM Class
 class ATM {
     private BankAccount account;
-
     public ATM(BankAccount account) {
         this.account = account;
     }
-
     public void start() {
         Scanner sc = new Scanner(System.in);
         int choice;
-
-        do {
+     do {
             System.out.println("\n--- ATM MENU ---");
             System.out.println("1. Check Balance");
             System.out.println("2. Deposit");
@@ -89,11 +74,9 @@ class ATM {
         sc.close();
     }
 }
-
-// Main Class
 public class ATMInterface {
     public static void main(String[] args) {
-        BankAccount userAccount = new BankAccount(1000); // initial balance
+        BankAccount userAccount = new BankAccount(1000); 
         ATM atm = new ATM(userAccount);
         atm.start();
     }
